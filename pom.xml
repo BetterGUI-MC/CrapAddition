@@ -5,12 +5,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>me.hsgamer.bettergui</groupId>
-  <artifactId>ExampleAddon</artifactId>
+  <artifactId>CrapAddition</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>ExampleAddon</name>
-  <description>An Example addon for BetterGUI</description>
+  <name>CrapAddition</name>
+  <description>Crazy Additions that come to my mind for a second</description>
 
   <properties>
     <java.version>1.8</java.version>
