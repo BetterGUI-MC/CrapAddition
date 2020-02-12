@@ -88,7 +88,7 @@ public class HandIcon extends Icon {
   }
 
   private ClickableItem getClickableItem(Player player) {
-    ItemStack itemStack = Utils.getItem(player);
+    ItemStack itemStack = Utils.getItem(player).clone();
     for (ItemProperty<?, ?> itemProperty : itemProperties.values()) {
       itemStack = itemProperty.parse(player, itemStack);
     }
