@@ -13,6 +13,6 @@ public final class Main extends Addon {
   public void onEnable() {
     IconBuilder.register("hand", HandIcon.class);
     CommandBuilder.register("give-this", GiveThisCommand.class);
-    CommandBuilder.register("take-this-from-hand", TakeFromHandCommand.class);
+    CommandBuilder.register("take-from-hand:", TakeFromHandCommand.class);
   }
 }
