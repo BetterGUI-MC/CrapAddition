@@ -3,7 +3,7 @@ package me.hsgamer.bettergui.crapaddition.icon;
 import java.util.Map;
 import java.util.Optional;
 import me.hsgamer.bettergui.builder.PropertyBuilder;
-import me.hsgamer.bettergui.lib.xseries.XMaterial;
+import me.hsgamer.bettergui.crapaddition.Utils;
 import me.hsgamer.bettergui.object.ClickableItem;
 import me.hsgamer.bettergui.object.Icon;
 import me.hsgamer.bettergui.object.Menu;
@@ -88,7 +88,7 @@ public class HandIcon extends Icon {
   }
 
   private ClickableItem getClickableItem(Player player) {
-    ItemStack itemStack = getItem(player);
+    ItemStack itemStack = Utils.getItem(player);
     for (ItemProperty<?, ?> itemProperty : itemProperties.values()) {
       itemStack = itemProperty.parse(player, itemStack);
     }
@@ -115,18 +115,5 @@ public class HandIcon extends Icon {
 
   public Map<String, Property<?>> getOtherProperties() {
     return otherProperties;
-  }
-
-  @SuppressWarnings("deprecated")
-  private ItemStack getItem(Player player) {
-    try {
-      return
-          XMaterial.matchXMaterial(player.getInventory().getItemInMainHand()).equals(XMaterial.AIR)
-              ? XMaterial.STONE.parseItem() : player.getInventory().getItemInMainHand();
-    } catch (Exception e) {
-      return XMaterial.matchXMaterial(player.getItemInHand()).equals(XMaterial.AIR)
-          ? XMaterial.STONE.parseItem() : player
-          .getItemInHand();
-    }
   }
 }
