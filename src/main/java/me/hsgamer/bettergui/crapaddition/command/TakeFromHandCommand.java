@@ -21,7 +21,7 @@ public class TakeFromHandCommand extends Command {
     int amount = 0;
     Optional<ClickableItem> clickableItem =
         getIcon().isPresent() ? getIcon().get().createClickableItem(player) : Optional.empty();
-    if (Validate.isValidPositiveInteger(parsed)) {
+    if (Validate.isValidPositiveNumber(parsed)) {
       amount = Integer.parseInt(parsed);
     } else if (parsed.equalsIgnoreCase("this") && clickableItem.isPresent()) {
       amount = clickableItem.get().getItem().getAmount();
