@@ -5,6 +5,7 @@ import me.hsgamer.bettergui.crapaddition.Utils;
 import me.hsgamer.bettergui.lib.taskchain.TaskChain;
 import me.hsgamer.bettergui.object.ClickableItem;
 import me.hsgamer.bettergui.object.Command;
+import me.hsgamer.bettergui.object.Icon;
 import me.hsgamer.bettergui.util.Validate;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -19,8 +20,10 @@ public class TakeFromHandCommand extends Command {
   public void addToTaskChain(Player player, TaskChain<?> taskChain) {
     String parsed = getParsedCommand(player);
     int amount = 0;
+
+    Object object = getVariableManager().getParent();
     Optional<ClickableItem> clickableItem =
-        getIcon().isPresent() ? getIcon().get().createClickableItem(player) : Optional.empty();
+        object instanceof Icon ? ((Icon) object).createClickableItem(player) : Optional.empty();
     if (Validate.isValidPositiveNumber(parsed)) {
       amount = Integer.parseInt(parsed);
     } else if (parsed.equalsIgnoreCase("this") && clickableItem.isPresent()) {
